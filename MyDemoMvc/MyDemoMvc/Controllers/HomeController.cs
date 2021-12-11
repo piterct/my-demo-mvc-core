@@ -20,6 +20,7 @@ namespace MyDemoMvc.Controllers
             _logger = logger;
         }
 
+        [Route("")]
         [Route("pagina-inicial")]
         [Route("pagina-inicial/{id:int}/{categoria:guid}")]
         public IActionResult Index(string id, Guid categoria)
@@ -27,6 +28,7 @@ namespace MyDemoMvc.Controllers
             return View();
         }
 
+        [Route("teste-model")]
         public IActionResult Index()
         {
             var filme = new Filme
