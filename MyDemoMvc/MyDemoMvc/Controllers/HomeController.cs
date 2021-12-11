@@ -22,14 +22,14 @@ namespace MyDemoMvc.Controllers
 
         [Route("")]
         [Route("pagina-inicial")]
-        [Route("pagina-inicial/{id:int}/{categoria:guid}")]
+        [Route("pagina-inicial/{id:int?}/{categoria:guid?}")]
         public IActionResult Index(string id, Guid categoria)
         {
             return View();
         }
-
+       
         [Route("teste-model")]
-        public IActionResult Index()
+        public IActionResult IndexTeste()
         {
             var filme = new Filme
             {
