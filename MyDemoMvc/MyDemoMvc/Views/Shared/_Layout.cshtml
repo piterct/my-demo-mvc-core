@@ -6,6 +6,8 @@
     <title>@ViewData["Title"] - MyDemoMvc</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+
 </head>
 <body>
     <header>
@@ -26,6 +28,7 @@
                         </li>
                     </ul>
                 </div>
+                <vc:Carrinho></vc:Carrinho>
             </div>
         </nav>
     </header>
@@ -39,6 +42,7 @@
         <div class="container">
             &copy; 2021 - MyDemoMvc - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
+         <vc:Carrinho></vc:Carrinho>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
