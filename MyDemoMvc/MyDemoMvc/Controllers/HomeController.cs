@@ -20,7 +20,6 @@ namespace MyDemoMvc.Controllers
             _logger = logger;
         }
 
-        [Route("")]
         [Route("pagina-inicial")]
         [Route("pagina-inicial/{id:int}/{categoria:guid}")]
         public IActionResult Index(string id, Guid categoria)
@@ -28,16 +27,42 @@ namespace MyDemoMvc.Controllers
             return View();
         }
 
+        public IActionResult Index()
+        {
+            var filme = new Filme
+            {
+                Titulo = "Oi",
+                DataLancamento = DateTime.Now,
+                Genero = null,
+                Avaliacao = 10,
+                Valor = 20000
+            };
+
+            return RedirectToAction("Privacy", filme);
+
+           // return View();
+        }
+
         [Route("privacidade")]
         [Route("politica-de-privacidade")]
-        public IActionResult Privacy()
+        public IActionResult Privacy(Filme filme)
         {
+            if (ModelState.IsValid)
+            {
+
+            }
+
+            foreach(var error in ModelState.Values.SelectMany(m => m.Errors))
+            {
+                Console.WriteLine(error.ErrorMessage);
+            }
+
             //return Json("{'nome':'Michael'}");
             //var fileBytes = System.IO.File.ReadAllBytes(@"c:\arquivo.txt");
             //var fileName = "ola.txt";
             //return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
 
-            return Content("Qualquer coisa");
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
